@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax class using allison course video</title>
+      <script src="jqueryv3.6.1.js"> </script>
+</head>
+<body>
+    <a href="#" id="load"> show me file content</a>
+    <div id="content"></div>
+    <script>
+
+        $('#load').on('click',function(){
+            console.log('you clicked');
+            var content=$('#content'); //equating the jquery id to  var content
+            //setInterval(function){//pasting your $.ajax code that is below right here}// the work of this simply updates the page at set intervals without having to refresh ur page so new features can simply be added
+            $.ajax({
+            url:'ajaxText.txt',// a saved random text
+            cache:false,// just incase ur text changes this helps run it as new
+            success:function(data){// this shows the content of the text
+                content.text(data);// a mthd in jquery
+            },
+            error:function(){
+                console.log('throw an error')//shows an error when url dosent tally
+            }
+        });
+        });
+       
+    </script>
+    
+</body>
+</html>
